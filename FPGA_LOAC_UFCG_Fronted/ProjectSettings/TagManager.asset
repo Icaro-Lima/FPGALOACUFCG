@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - FPGA
+  - 
+  - CircuitBoard
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: FPGA
+    uniqueID: 3084466813
+    locked: 0
+  - name: Component
+    uniqueID: 1083920337
+    locked: 0
+  - name: CircuitBoard
+    uniqueID: 297069179
+    locked: 0
+  - name: CircuitBoardComponent
+    uniqueID: 2586501501
+    locked: 0
