@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
             { "code", Text.text }
         };
 
-        UnityWebRequest www = UnityWebRequest.Post("localhost:8080/", formData);
+        UnityWebRequest www = UnityWebRequest.Post("localhost:8080/compile", formData);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -89,6 +89,10 @@ public class Controller : MonoBehaviour
             for (int i = 0; i < 8; i++)
             {
                 LED[i].ChangeState(output[i] == '1' ? true : false);
+            }
+            for (int i = 8; i < 16; i++)
+            {
+                SEG[i - 8].ChangeState(output[i] == '1' ? true : false);
             }
         }
     }

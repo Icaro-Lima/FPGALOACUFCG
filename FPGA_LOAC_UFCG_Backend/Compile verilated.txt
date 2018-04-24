@@ -1,0 +1,1 @@
+g++ -I"C:\Program Files (x86)\verilator-3.841\include" -I"obj_dir" "C:\Program Files (x86)\verilator-3.841\include\verilated.cpp" obj_dir/VMain__Syms.cpp  obj_dir/VMain.cpp Main.cpp

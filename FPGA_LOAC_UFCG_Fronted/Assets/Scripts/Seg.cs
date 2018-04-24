@@ -14,14 +14,7 @@ public class Seg : MonoBehaviour
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (State)
-        {
-            SpriteRenderer.enabled = true;
-        }
-        else
-        {
-            SpriteRenderer.enabled = false;
-        }
+        ChangeState(State);
     }
 
     // Update is called once per frame
@@ -30,19 +23,8 @@ public class Seg : MonoBehaviour
 
     }
 
-    public bool ChangeState()
+    public void ChangeState(bool state)
     {
-        State = !State;
-
-        if (State)
-        {
-            SpriteRenderer.enabled = true;
-        }
-        else
-        {
-            SpriteRenderer.enabled = false;
-        }
-
-        return State;
+        SpriteRenderer.enabled = State = state;
     }
 }

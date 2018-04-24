@@ -1,9 +1,9 @@
 # vsim -c Main -do "run;quit" 
-# Start time: 03:59:59 on Apr 23,2018
-# Loading C:/Users/Lenovo/AppData/Local/Temp\Lenovo@LAPTOP-PAJ1LO20_dpi_224\win32pe_gcc-4.2.1\export_tramp.dll
+# Start time: 19:40:08 on Apr 23,2018
+# Loading C:/Users/Lenovo/AppData/Local/Temp\Lenovo@LAPTOP-PAJ1LO20_dpi_9520\win32pe_gcc-4.2.1\export_tramp.dll
 # Loading sv_std.std
 # Loading work.Main
-# Loading C:/Users/Lenovo/AppData/Local/Temp\Lenovo@LAPTOP-PAJ1LO20_dpi_224\win32pe_gcc-4.2.1\vsim_auto_compile.dll
+# Loading C:/Users/Lenovo/AppData/Local/Temp\Lenovo@LAPTOP-PAJ1LO20_dpi_9520\win32pe_gcc-4.2.1\vsim_auto_compile.dll
 # run
 # 00000000:00xxxxxxxxxxxxxx
 # 10000000:01xxxxxxxxxxxxxx
@@ -262,5 +262,5 @@
 # 01111111:01xxxxxxxxxxxxxx
 # 11111111:11xxxxxxxxxxxxxx
 # quit
-# End time: 04:00:00 on Apr 23,2018, Elapsed time: 0:00:01
+# End time: 19:40:08 on Apr 23,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
