@@ -22,7 +22,7 @@ public class Controller {
 		
 		// Lendo e substituindo no Template.
 		File file = new File(
-				"C:\\Users\\Lenovo\\Documents\\Unity\\FPGA_LOAC_UFCG\\FPGA_LOAC_UFCG_Backend\\Template.sv");
+				"..\\FPGA_LOAC_UFCG_Backend\\Template.sv");
 		FileInputStream fis = new FileInputStream(file);
 		byte[] data = new byte[(int) file.length()];
 		fis.read(data);
@@ -35,13 +35,13 @@ public class Controller {
 
 		// Escrevendo no Main.sv.
 		PrintWriter writer = new PrintWriter(
-				"C:\\Users\\Lenovo\\Documents\\Unity\\FPGA_LOAC_UFCG\\FPGA_LOAC_UFCG_Backend\\Main.sv", "UTF-8");
+				"..\\FPGA_LOAC_UFCG_Backend\\Main.sv", "UTF-8");
 		writer.print(templateReplaced);
 		writer.close();
 		// End.
 
 		ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c",
-				"cd \"C:\\Users\\Lenovo\\Documents\\Unity\\FPGA_LOAC_UFCG\\FPGA_LOAC_UFCG_Backend\" && verilator -cc Main.sv");
+				"cd \"..\\FPGA_LOAC_UFCG_Backend\" && \"..\\verilator-3.841\\verilator.exe\" -cc Main.sv");
 
 		Process p = builder.start();
 		BufferedReader err = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -58,7 +58,7 @@ public class Controller {
 		}
 		
 		builder = new ProcessBuilder("cmd.exe", "/c",
-				"cd \"C:\\Users\\Lenovo\\Documents\\Unity\\FPGA_LOAC_UFCG\\FPGA_LOAC_UFCG_Backend\" && g++ -I\"C:\\Program Files (x86)\\verilator-3.841\\include\" -I\"obj_dir\" \"C:\\Program Files (x86)\\verilator-3.841\\include\\verilated.cpp\" obj_dir/VMain__Syms.cpp  obj_dir/VMain.cpp Main.cpp");
+				"cd \"..\\FPGA_LOAC_UFCG_Backend\" && g++ -I\"..\\verilator-3.841\\include\" -I\"obj_dir\" \"..\\verilator-3.841\\include\\verilated.cpp\" obj_dir/VMain__Syms.cpp  obj_dir/VMain.cpp Main.cpp");
 
 		p = builder.start();
 		err = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -74,7 +74,7 @@ public class Controller {
 		}
 
 		builder = new ProcessBuilder("cmd.exe", "/c",
-				"cd \"C:\\Users\\Lenovo\\Documents\\Unity\\FPGA_LOAC_UFCG\\FPGA_LOAC_UFCG_Backend\" && a.exe");
+				"cd \"..\\FPGA_LOAC_UFCG_Backend\" && a.exe");
 
 		p = builder.start();
 		BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));

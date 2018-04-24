@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.WebContentInterceptor;
 @Controller
 public class HomeController {
 	
-	@CacheEvict(allEntries = true)
 	@RequestMapping("/")
 	public String index() {
 		return "index.html";

@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
             { "code", Text.text }
         };
 
-        UnityWebRequest www = UnityWebRequest.Post("localhost:8080/compile", formData);
+        UnityWebRequest www = UnityWebRequest.Post("/compile", formData);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
