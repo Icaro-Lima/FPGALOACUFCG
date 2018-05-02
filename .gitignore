@@ -1,3 +1,5 @@
 FPGA_LOAC_UFCG_Fronted/bin/*
 FPGA_LOAC_UFCG_Fronted/Library/*
 FPGAUFCGLOAC/src/main/resources/static/*
+FPGAUFCGLOAC/target/*
+verilator-3.841.7z

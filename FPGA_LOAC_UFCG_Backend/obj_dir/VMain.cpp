@@ -17,15 +17,9 @@ VL_CTOR_IMP(VMain) {
     // Reset internal values
     
     // Reset structure values
-    { int __Vi0=0; for (; __Vi0<8; ++__Vi0) {
-	    SWI[__Vi0] = VL_RAND_RESET_I(1);
-    }}
-    { int __Vi0=0; for (; __Vi0<8; ++__Vi0) {
-	    LED[__Vi0] = VL_RAND_RESET_I(1);
-    }}
-    { int __Vi0=0; for (; __Vi0<8; ++__Vi0) {
-	    SEG[__Vi0] = VL_RAND_RESET_I(1);
-    }}
+    SWI = VL_RAND_RESET_I(8);
+    LED = VL_RAND_RESET_I(8);
+    SEG = VL_RAND_RESET_I(8);
 }
 
 void VMain::__Vconfigure(VMain__Syms* vlSymsp, bool first) {
@@ -79,8 +73,9 @@ void VMain::_combo__TOP__1(VMain__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_PRINTF("    VMain::_combo__TOP__1\n"); );
     VMain* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at Main.sv:7
-    vlTOPp->SEG[0] = (IData)(vlTOPp->SWI)[0];
+    // ALWAYS at Main.sv:8
+    vlTOPp->SEG = ((0xfd & (IData)(vlTOPp->SEG)) | 
+		   (2 & (IData)(vlTOPp->SWI)));
 }
 
 void VMain::_eval(VMain__Syms* __restrict vlSymsp) {

@@ -22,9 +22,10 @@ VL_MODULE(VMain) {
     // PORTS
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
-    VL_IN8(SWI[8],0,0);
-    VL_OUT8(LED[8],0,0);
-    VL_OUT8(SEG[8],0,0);
+    VL_IN8(SWI,7,0);
+    VL_OUT8(LED,7,0);
+    VL_OUT8(SEG,7,0);
+    //char	__VpadToAlign3[1];
     
     // LOCAL SIGNALS
     // Internals; generally not touched by application code
@@ -34,7 +35,6 @@ VL_MODULE(VMain) {
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code
-    //char	__VpadToAlign36[4];
     VMain__Syms*	__VlSymsp;		// Symbol table
     
     // PARAMETERS

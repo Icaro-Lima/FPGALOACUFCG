@@ -1,9 +1,13 @@
 module Main(
-input logic SWI[7:0],
-output logic LED[7:0],
-output logic SEG[7:0]
+  input logic [7:0] SWI,
+  output logic [7:0] LED,
+  output logic [7:0] SEG
 );
 
-always_comb SEG[0] <= SWI[0];
+// Seu código aqui:
+always_comb begin
+  SEG[1] <= SWI[1];
+end
+
 
 endmodule

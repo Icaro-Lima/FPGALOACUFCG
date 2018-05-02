@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class Controller : MonoBehaviour
 {
 
+    public GameObject StatusGO;
+
+    private Text Status;
+
     private bool Working;
 
     private Dictionary<string, string> Map;
@@ -18,6 +22,7 @@ public class Controller : MonoBehaviour
     public GameObject[] SEGGO;
 
     public GameObject TextGO;
+    public InputField InputFieldGO;
 
     private Led[] LED;
     private Seg[] SEG;
@@ -36,10 +41,24 @@ public class Controller : MonoBehaviour
         }
 
         Text = TextGO.GetComponent<Text>();
+        Status = StatusGO.GetComponent<Text>();
+
+        InputFieldGO.text = @"module Main(
+  input logic [7:0] SWI,
+  output logic [7:0] LED,
+  output logic [7:0] SEG
+);
+
+// Seu código aqui:
+
+
+
+endmodule";
     }
 
     internal void Compile()
     {
+        Status.text = "Aguardando servidor...";
         StartCoroutine(Upload());
     }
 
@@ -53,9 +72,9 @@ public class Controller : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("/compile", formData);
         yield return www.SendWebRequest();
 
-        if (www.isNetworkError || www.isHttpError)
+        if (www.responseCode != 200)
         {
-            Debug.Log(www.error);
+            Status.text = www.error + "\n" + www.downloadHandler.text;
         }
         else
         {
@@ -69,7 +88,14 @@ public class Controller : MonoBehaviour
                 string[] keyValue = result[i].Split('=');
                 Map.Add(keyValue[0].Trim(), keyValue[1].Trim());
             }
+
+            Status.text = "Ok!";
         }
+    }
+
+    internal void ReloadControls()
+    {
+        SwitchChanged(0, States[0]);
     }
 
     internal void SwitchChanged(int index, bool state)

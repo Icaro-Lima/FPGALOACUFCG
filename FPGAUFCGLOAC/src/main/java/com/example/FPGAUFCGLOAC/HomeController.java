@@ -12,20 +12,21 @@ import org.springframework.web.servlet.mvc.WebContentInterceptor;
 
 @Controller
 public class HomeController {
-	
+
 	@RequestMapping("/")
 	public String index() {
 		return "index.html";
 	}
-	
-    @Bean
-    public MappedInterceptor cacheControlInterceptor() {
-        WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
-        webContentInterceptor.setCacheControl(CacheControl.maxAge(0, TimeUnit.SECONDS).cachePublic());
-        webContentInterceptor.addCacheMapping(CacheControl.noStore().mustRevalidate(), "/index.html");
-        // if using Spring Security CacheControlHeadersWriter:
-        // webContentInterceptor.addCacheMapping(CacheControl.empty(), "/", "/index.html");
-        return new MappedInterceptor(null, webContentInterceptor);
-    }
-	
+
+	/*@Bean
+	public MappedInterceptor cacheControlInterceptor() {
+		WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
+		webContentInterceptor.setCacheControl(CacheControl.maxAge(0, TimeUnit.SECONDS).cachePublic());
+		webContentInterceptor.addCacheMapping(CacheControl.noStore().mustRevalidate(), "/index.html");
+		// if using Spring Security CacheControlHeadersWriter:
+		// webContentInterceptor.addCacheMapping(CacheControl.empty(), "/",
+		// "/index.html");
+		return new MappedInterceptor(null, webContentInterceptor);
+	}*/
+
 }
